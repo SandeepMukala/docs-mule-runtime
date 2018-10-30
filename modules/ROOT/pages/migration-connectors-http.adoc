@@ -363,16 +363,23 @@ should now be defined explicitly through DataWeave expressions.
       #[vars.customSource]
     </http:body>
     <http:headers>
-      #[{
+      #[output applicaton/java
+      ---{
         'Host': 'www.example.com'
         'Transfer-Encoding' : 'chunked'
       }]
     </http:headers>
     <http:uri-params>
-      #[{ 'id' : vars.songId }]
+      #[output applicaton/java
+      ---{
+            'id' : vars.songId 
+         }]
     </http:uri-params>
     <http:query-params>
-      #[vars.params]
+      #[output applicaton/java
+      ---{
+        vars.params
+      }]
     </http:query-params>
   </http:request>
   ...
